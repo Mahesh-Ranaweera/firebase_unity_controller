@@ -15,7 +15,7 @@ var config = {
 const conn = firebase.initializeApp(config);
 var db = firebase.database();
 //import the query
-var query = require('./query');
+//var query = require('./query');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -23,21 +23,21 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/api', function(req, res, next) {
-  res.render('index', { title: 'API' });
+  res.render('mobile', { title: 'API' });
 });
 
-router.get('/write', function(req, res, next) {
-  var user = Math.floor(Date.now());
-  var name = 'Mahesh Ranaweera';
-  if(query.writedata(db, user, name)){
-      // res.redirect('/');
-      getdata(db, res);
-  }else{
-      res.render('index',{
-          title: "Error"
-      })
-  }
-});
+// router.get('/write', function(req, res, next) {
+//   var user = Math.floor(Date.now());
+//   var name = 'Mahesh Ranaweera';
+//   if(query.writedata(db, user, name)){
+//       // res.redirect('/');
+//       //getdata(db, res);
+//   }else{
+//       res.render('index',{
+//           title: "Error"
+//       })
+//   }
+// });
 
 
 ///read data
@@ -54,8 +54,8 @@ function getdata(db, res){
           childdata += JSON.stringify(collection)
           //console.log(childdata)
       })
-      res.json({
-          users: childdata
+      res.render('index',{
+          title: childdata
       })
   })
 }

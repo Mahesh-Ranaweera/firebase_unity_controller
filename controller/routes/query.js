@@ -1,7 +1,11 @@
 var writedata = function(db, user, name){
-    db.ref('users/'+user).set({
-        username: name,
-        id: user
+    db.ref('users/'+appdata).set({
+        LR: name,
+        FB: user,
+        DIR: ,
+        ACC: ,
+        ACCWG ,
+        ROTATION: 
     });
     return true;
 }

@@ -1,0 +1,118 @@
+extends layout
+
+block content
+  //- script(src='javascripts/socket.io.js')
+  script(src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+  crossorigin="anonymous")
+  script(src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js")
+
+
+
+  h1= title
+  p Welcome to #{title}
+
+
+
+  b |LR
+    #doTiltLR
+
+  b |FB
+    #doTiltFB
+
+  b | Direction
+    #doDirection
+
+  b |  Acceleration(exclude gravity)
+    #moAccel
+
+  b | Acceleration incl gravity
+    #moAccelGrav
+  
+  b |  Rotation
+    #moRotation
+
+  b |  Interval
+    #moInterval
+
+
+  script.
+    var config = {
+      apiKey: "AIzaSyAjOkEZ2ABv9pfM-v6E_107XxrQBB3QG_g",
+      authDomain: "hacknorth-58813.firebaseapp.com",
+      databaseURL: "https://hacknorth-58813.firebaseio.com",
+      projectId: "hacknorth-58813",
+      storageBucket: "",
+      messagingSenderId: "705014409440"
+    };
+
+    firebase.initializeApp(config);
+    var db = firebase.database();
+
+    var query='mobile';
+
+    function data(){
+      if ('DeviceOrientationEvent' in window) {
+        window.addEventListener('deviceorientation', deviceOrientationHandler, false);
+        window.addEventListener('devicemotion', deviceMotionHandler, false);
+        console.log('__DATA__');
+      } else {
+          alert('Device orientation not supported.');
+      }
+    }
+
+    function writedata(LR,FB,DIR){
+      db.ref('mobile_orient/'+query).update({
+          LR: LR,
+          FB: FB,
+          DIR: DIR
+      });
+      return true;
+    }
+    
+
+    function deviceOrientationHandler(eventData) {
+        var LR = eventData.gamma;
+        var FB = eventData.beta;
+        var DIR = eventData.alpha;
+        
+        //store the orientation
+        writedata(Math.round(LR), Math.round(FB), Math.round(DIR));
+
+        document.getElementById("doTiltLR").innerHTML = Math.round(LR);
+        document.getElementById("doTiltFB").innerHTML = Math.round(FB);
+        document.getElementById("doDirection").innerHTML = Math.round(DIR);
+    }
+
+    function deviceMotionHandler(eventData) {
+        var info, xyz = "[X, Y, Z]";
+
+        // Grab the acceleration from the results
+        var acceleration = eventData.acceleration;
+        info = xyz.replace("X", acceleration.x && acceleration.x.toFixed(3));
+        info = info.replace("Y", acceleration.y && acceleration.y.toFixed(3));
+        info = info.replace("Z", acceleration.z && acceleration.z.toFixed(3));
+        document.getElementById("moAccel").innerHTML = info;
+
+        // Grab the acceleration including gravity from the results
+        acceleration = eventData.accelerationIncludingGravity;
+        info = xyz.replace("X", acceleration.x && acceleration.x.toFixed(3));
+        info = info.replace("Y", acceleration.y && acceleration.y.toFixed(3));
+        accGravity = info.replace("Z", acceleration.z && acceleration.z.toFixed(3));
+        document.getElementById("moAccelGrav").innerHTML = accGravity;
+
+        // Grab the rotation rate from the results
+        var rotation = eventData.rotationRate;
+        info = xyz.replace("X", rotation.alpha && rotation.alpha.toFixed(3));
+        info = info.replace("Y", rotation.beta && rotation.beta.toFixed(3));
+        deviceRot = info.replace("Z", rotation.gamma && rotation.gamma.toFixed(3));
+        document.getElementById("moRotation").innerHTML = deviceRot;
+
+          var accel = {
+            acc: accGravity,
+            rot: deviceRot
+          }
+
+          return accel;
+        }
+
+        data();
