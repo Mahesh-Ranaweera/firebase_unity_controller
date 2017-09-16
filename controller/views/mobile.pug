@@ -51,16 +51,16 @@ block content
     var query='mobile';
 
     function data(){
-      if ('DeviceOrientationEvent' in window) {
+      if ('DeviceOrientationEvent' in window && 'devicemotion' in window) {
         window.addEventListener('deviceorientation', deviceOrientationHandler, false);
         window.addEventListener('devicemotion', deviceMotionHandler, false);
-        console.log('__DATA__');
+        //console.log('__DATA__');
       } else {
           alert('Device orientation not supported.');
       }
     }
 
-    function writedata(LR,FB,DIR){
+    function write_orient(LR,FB,DIR){
       db.ref('mobile_orient/'+query).update({
           LR: LR,
           FB: FB,
@@ -68,7 +68,14 @@ block content
       });
       return true;
     }
-    
+
+    function write_accl(ACC, ROT){
+      db.ref('mobile_accl/'+query).update({
+          ACC: ACC,
+          ROT: ROT
+      });
+      return true;
+    }
 
     function deviceOrientationHandler(eventData) {
         var LR = eventData.gamma;
@@ -76,7 +83,7 @@ block content
         var DIR = eventData.alpha;
         
         //store the orientation
-        writedata(Math.round(LR), Math.round(FB), Math.round(DIR));
+        write_orient(Math.round(LR), Math.round(FB), Math.round(DIR));
 
         document.getElementById("doTiltLR").innerHTML = Math.round(LR);
         document.getElementById("doTiltFB").innerHTML = Math.round(FB);
@@ -107,12 +114,7 @@ block content
         deviceRot = info.replace("Z", rotation.gamma && rotation.gamma.toFixed(3));
         document.getElementById("moRotation").innerHTML = deviceRot;
 
-          var accel = {
-            acc: accGravity,
-            rot: deviceRot
-          }
-
-          return accel;
+         write_accl(accGravity, deviceRot);
         }
 
         data();
