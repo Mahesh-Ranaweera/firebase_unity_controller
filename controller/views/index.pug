@@ -1,12 +1,14 @@
 extends layout
 
 block content
-  p.title 
-    | Explore!
+  .container
+    p.title 
+      | Explore!
 
-  - var url="/join";
-  a(href=url)
-   div.ball-container
-     div.large
-     div.small
+    .center
+      - var url="/join";
+      a(href=url)
+        div.ball-container
+          div.large
+          div.small
     
