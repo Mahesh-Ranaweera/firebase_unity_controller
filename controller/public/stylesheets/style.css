@@ -77,21 +77,25 @@ b {
     color: #644536; }
 
 .combo {
-  position: relative; }
+  position: relative;
+  height: 200px;
+  width: 200px;
+  left: 32vw;
+  top: 24vw; }
   .combo .arrow {
     position: absolute;
-    width: 155px;
-    height: 300px;
-    left: 181px;
-    top: 287px;
-    background: 1px; }
+    width: 5px;
+    height: 160px;
+    left: 0px;
+    top: 0px;
+    background: black; }
   .combo .up {
     transform: rotate(-90deg);
     -webkit-transform: rotate(-90deg);
     font-size: 61px;
-    position: relative;
-    right: 75.51px;
-    bottom: 7px;
+    position: absolute;
+    right: 190px;
+    bottom: 152px;
     font-family: 'Quicksand', sans-serif; }
 
 /*# sourceMappingURL=style.css.map */

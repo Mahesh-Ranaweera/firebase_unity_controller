@@ -10,14 +10,22 @@ block content
   - var u_id = user;
   input(type='hidden' id='curr_user' value=u_id)
 
+  div.qball
+    .q-text
+      | ?
 
-  b |LR
+  .combo
+    .arrow
+    .up 
+      | >
+
+  div | x-axis
     #doTiltLR
 
-  b |FB
+  div | y-axis
     #doTiltFB
 
-  b | Direction
+  div | z-axis 
     #doDirection
 
   b |  Acceleration(exclude gravity)
