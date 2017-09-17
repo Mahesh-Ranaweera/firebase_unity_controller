@@ -14,17 +14,31 @@ var config = {
 };
 const conn = firebase.initializeApp(config);
 var db = firebase.database();
-//import the query
-//var query = require('./query');
+
+//create the user
+var query = require('./query');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Index' });
 });
 
 router.get('/api', function(req, res, next) {
   res.render('mobile', { title: 'API' });
 });
+
+
+//create the user onlogin
+router.post('/join', function(req, res, next){
+  var name = Math.floor(Date.now());
+
+  if(query.writedata(db, name)){
+    res.redirect('/api');
+  }else{
+    res.redirect('/');
+  }
+});
+
 
 // router.get('/write', function(req, res, next) {
 //   var user = Math.floor(Date.now());

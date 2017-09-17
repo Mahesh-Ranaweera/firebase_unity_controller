@@ -34,7 +34,8 @@ block content
   b |  Interval
     #moInterval
  
-
+  input(type='text' placeholder='Enter Your Name:')
+  button(type='submit' value='JOIN')
 
   script.
     var config = {
@@ -52,7 +53,7 @@ block content
     var query='mobile';
 
     function data(){
-      if ('DeviceOrientationEvent' in window && 'devicemotion' in window) {
+      if ('DeviceOrientationEvent' in window || 'devicemotion' in window) {
         window.addEventListener('deviceorientation', deviceOrientationHandler, false);
         window.addEventListener('devicemotion', deviceMotionHandler, false);
         //console.log('__DATA__');
