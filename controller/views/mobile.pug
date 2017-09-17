@@ -10,15 +10,24 @@ block content
   - var u_id = user;
   input(type='hidden' id='curr_user' value=u_id)
 
+  div.qball
+    .q-text
+      | ?
 
-  b |LR
-    #doTiltLR
+  .combo
+    .arrow
+    .up 
+      | >
 
-  b |FB
-    #doTiltFB
+  div.axis-container
+    div.axis.xa x-axis: 
+      #doTiltLR
 
-  b | Direction
-    #doDirection
+    div.axis.ya y-axis: 
+      #doTiltFB
+
+    div.axis.za z-axis:  
+      #doDirection
 
   b |  Acceleration(exclude gravity)
     #moAccel
@@ -90,6 +99,8 @@ block content
         
         //store the orientation
         write_orient(Math.round(LR), Math.round(FB), Math.round(DIR));
+
+        $(".combo").css("transform", "rotate3d(" + LR + "," + FB + "," + DIR +",0)");
 
         document.getElementById("doTiltLR").innerHTML = Math.round(LR);
         document.getElementById("doTiltFB").innerHTML = Math.round(FB);

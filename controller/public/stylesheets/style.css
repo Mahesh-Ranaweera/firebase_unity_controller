@@ -12,6 +12,9 @@ a {
   height: 100%;
   background: rgba(238, 241, 189, 0.16); }
 
+b {
+  display: none; }
+
 .title {
   position: absolute;
   width: 275px;
@@ -50,5 +53,68 @@ a {
     background: #BBD686;
     border-radius: 300px;
     box-shadow: 0px 11px 11px rgba(0, 0, 0, 0.25); }
+
+.qball {
+  position: absolute;
+  width: 77px;
+  height: 77px;
+  left: 259px;
+  top: 30px;
+  border-radius: 100px;
+  background: rgba(196, 163, 129, 0.32); }
+  .qball .q-text {
+    position: absolute;
+    width: 23px;
+    height: 57px;
+    left: 7.2vw;
+    top: 2.6vw;
+    z-index: 1;
+    font-family: 'Quicksand', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 48px;
+    color: #644536; }
+
+.combo {
+  position: relative;
+  height: 200px;
+  width: 200px;
+  left: 32vw;
+  top: 24vw; }
+  .combo .arrow {
+    position: absolute;
+    width: 5px;
+    height: 160px;
+    left: 0px;
+    top: 0px;
+    background: black; }
+  .combo .up {
+    transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    font-size: 61px;
+    position: absolute;
+    right: 190px;
+    bottom: 152px;
+    font-family: 'Quicksand', sans-serif; }
+
+.axis-container {
+  position: relative;
+  top: 28vw;
+  right: 4vw; }
+  .axis-container .axis {
+    margin-top: 20px;
+    height: 51px;
+    width: 135px;
+    font-size: 36px;
+    font-family: 'Quicksand', sans-serif;
+    font-style: normal;
+    font-weight: bolder; }
+  .axis-container .xa {
+    color: #B2675E; }
+  .axis-container .ya {
+    color: #C4A381; }
+  .axis-container .za {
+    color: #BBD686; }
 
 /*# sourceMappingURL=style.css.map */
