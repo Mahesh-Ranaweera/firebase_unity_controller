@@ -22,14 +22,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//setup the socket io
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
-
-io.on('orientation_data', function(socket){
-  console.log('Connection');
-});
-
 
 app.use('/', index);
 

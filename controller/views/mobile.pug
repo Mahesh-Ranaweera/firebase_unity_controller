@@ -62,7 +62,9 @@ block content
 
     //send the orientation data
     function write_orient(LR,FB,DIR){
-      db.ref('mobile_orient/'+query).update({
+      var uid = document.getElementByID('curr_user').val();
+      
+      db.ref(uid).child('mobile_orient/'+query).update({
           LR: LR,
           FB: FB,
           DIR: DIR
@@ -72,7 +74,9 @@ block content
 
     //send the device acceleration
     function write_accl(ACC, ROT){
-      db.ref('mobile_accl/'+query).update({
+      var uid = document.getElementByID('curr_user').val();
+
+      db.ref(uid).child('mobile_accl/'+query).update({
           ACC: ACC,
           ROT: ROT
       });
@@ -119,4 +123,4 @@ block content
          write_accl(accGravity, deviceRot);
     }
 
-        data();
+    data();
