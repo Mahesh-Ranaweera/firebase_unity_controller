@@ -36,13 +36,24 @@ router.get('/api', function(req, res, next) {
 router.get('/join', function(req, res, next){
   var name = Date.now();
 
+
+  // var xmlHttp = new XMLHttpRequest();
+  // xmlHttp.onreadystatechange = function() { 
+  //     if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+  //         callback(xmlHttp.responseText);
+  // }
+  // xmlHttp.open("GET", "https://cloud.estimote.com/indoor/locations/:877408dcf87210b3c5e0466120fea339", true); // true for asynchronous 
+  // xmlHttp.send(null);
+
+  // let inRange = xmlHttp.responseText.position;
+  // console.log(inRange);
+
   if(query.writedata(db, name)){
     res.redirect('/api?name=' + name);
   }else{
     res.redirect('/');
   }
 });
-
 
 // router.get('/write', function(req, res, next) {
 //   var user = Math.floor(Date.now());
