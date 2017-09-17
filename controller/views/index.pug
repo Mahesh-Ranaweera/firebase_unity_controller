@@ -1,10 +1,11 @@
 extends layout
 
 block content
-  h1= title
   p.title 
     | Explore!
 
-
-  form(action='/join' method='post')
-    input(type="submit" value="JOIN")
+  - var url="/join";
+  a(href=url)
+   div.ball-container
+     div.large
+     div.small
