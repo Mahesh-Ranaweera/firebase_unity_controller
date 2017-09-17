@@ -77,7 +77,14 @@ block content
       var uid = 'users'+ document.getElementById('curr_user').value;
       console.log(uid);
 
-      db.ref().child(uid).child('mobile_orient/'+query).update({
+       //active to create each unique user data
+      //- db.ref().child(uid).child('mobile_orient/'+query).update({
+      //-     LR: LR,
+      //-     FB: FB,
+      //-     DIR: DIR
+      //- });
+
+      db.ref('mobile_orient/'+query).update({
           LR: LR,
           FB: FB,
           DIR: DIR
@@ -90,7 +97,14 @@ block content
     function write_accl(ACC, ROT){
       var uid = 'users'+document.getElementById('curr_user').value;
 
-      db.ref().child(uid).child('mobile_accl/'+query).update({
+
+      //active to create each unique user data
+      //- db.ref().child(uid).child('mobile_accl/'+query).update({
+      //-     ACC: ACC,
+      //-     ROT: ROT
+      //- });
+
+      db.ref('mobile_accl/'+query).update({
           ACC: ACC,
           ROT: ROT
       });
