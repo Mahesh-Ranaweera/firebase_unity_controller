@@ -16,7 +16,7 @@
     //    private int _count = -1;
 
         private float x = 0.3f;
-       private float y = 0.3f;
+        private float y = 0.3f;
         private float z = 0.3f;
 
         //Rotational Variables
@@ -73,10 +73,8 @@
 
             Debug.Log("ROTATION " + xrot + "," + yrot + "," + zrot);
             //   clickCube.transform.localScale = new Vector3(x, y, z);
-     
 
             clickCube.transform.eulerAngles = new Vector3(xrot, -yrot, zrot);
-
         }
 
         private void OnCountUpdateX(object sender, ValueChangedEventArgs e) {
