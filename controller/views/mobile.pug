@@ -97,7 +97,7 @@ block content
         //store the orientation
         write_orient(Math.round(LR), Math.round(FB), Math.round(DIR));
 
-        $(".combo").css("transform", "rotate3d(" + LR + "," + FB + "," + DIR +",0)");
+        $(".combo").css("transform", "rotate3d(" + LR + "," + FB + "," + DIR +",90deg)");
 
         document.getElementById("doTiltLR").innerHTML = Math.round(LR);
         document.getElementById("doTiltFB").innerHTML = Math.round(FB);

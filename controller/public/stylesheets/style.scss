@@ -2,7 +2,7 @@ body {
 	padding: 50px;
 	font: {
 		size: 14px;
-	  	family: "Lucida Grande", Helvetica, Arial, sans-serif;
+	  	family: 'Lucida Grande', Helvetica, Arial, sans-serif;
 	}
 	position: relative;	
 }
@@ -106,6 +106,7 @@ b {
     height: 200px;
     width: 200px;
     left: 32vw;
+    transform: none;
     top: 24vw;
 
 	.arrow {
@@ -156,4 +157,4 @@ b {
 	}
 }
 
-#doTiltFB, #doTiltLR, #doDirection { display: inline-block; }
+#doTiltFB, #doTiltLR, #doDirection { display: inline-block; float: right;}

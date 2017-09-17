@@ -1,7 +1,7 @@
 body {
   padding: 50px;
   font-size: 14px;
-  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Lucida Grande', Helvetica, Arial, sans-serif;
   position: relative; }
 
 a {
@@ -81,6 +81,7 @@ b {
   height: 200px;
   width: 200px;
   left: 32vw;
+  transform: none;
   top: 24vw; }
   .combo .arrow {
     position: absolute;
@@ -118,6 +119,7 @@ b {
     color: #BBD686; }
 
 #doTiltFB, #doTiltLR, #doDirection {
-  display: inline-block; }
+  display: inline-block;
+  float: right; }
 
 /*# sourceMappingURL=style.css.map */
