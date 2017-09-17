@@ -96,12 +96,9 @@ block content
         var LR = eventData.gamma;
         var FB = eventData.beta;
         var DIR = eventData.alpha;
-        
+
         //store the orientation
         write_orient(Math.round(LR), Math.round(FB), Math.round(DIR));
-
-        var combo = document.getElementById("combo");
-        combo.style.webkitTransform = "rotate("+ LR +"deg) rotate3d(1,0,0, "+ (FB*-1)+"deg)";
 
         document.getElementById("doTiltLR").innerHTML = Math.round(LR);
         document.getElementById("doTiltFB").innerHTML = Math.round(FB);
