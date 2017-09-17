@@ -19,14 +19,15 @@ block content
     .up 
       | >
 
-  div | x-axis
-    #doTiltLR
+  div.axis-container
+    div.axis.xa x-axis: 
+      #doTiltLR
 
-  div | y-axis
-    #doTiltFB
+    div.axis.ya y-axis: 
+      #doTiltFB
 
-  div | z-axis 
-    #doDirection
+    div.axis.za z-axis:  
+      #doDirection
 
   b |  Acceleration(exclude gravity)
     #moAccel

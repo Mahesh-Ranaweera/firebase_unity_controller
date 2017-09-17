@@ -128,3 +128,31 @@ b {
 	}
 }
 
+.axis-container {
+	position: relative;
+	top: 28vw;
+    right: 4vw;
+
+	.axis {
+		margin-top: 20px;
+		height: 51px;
+    	width: 135px;
+		font-size: 36px;
+		font-family: 'Quicksand', sans-serif;
+		font-style: normal;
+		font-weight: bolder;
+	}
+
+	.xa {
+		color: #B2675E;
+	}
+
+	.ya {
+		color: #C4A381;
+	}
+
+	.za {
+		color: #BBD686;
+	}
+}
+

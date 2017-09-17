@@ -98,4 +98,23 @@ b {
     bottom: 152px;
     font-family: 'Quicksand', sans-serif; }
 
+.axis-container {
+  position: relative;
+  top: 28vw;
+  right: 4vw; }
+  .axis-container .axis {
+    margin-top: 20px;
+    height: 51px;
+    width: 135px;
+    font-size: 36px;
+    font-family: 'Quicksand', sans-serif;
+    font-style: normal;
+    font-weight: bolder; }
+  .axis-container .xa {
+    color: #B2675E; }
+  .axis-container .ya {
+    color: #C4A381; }
+  .axis-container .za {
+    color: #BBD686; }
+
 /*# sourceMappingURL=style.css.map */
