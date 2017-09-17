@@ -43,6 +43,16 @@ router.get('/join', function(req, res, next){
   }
 });
 
+router.get('/signout', function(req,res, next){
+    var name = req.query.name;
+
+    if(query.deletedata(db, name)){
+      res.redirect('/');
+    }else{
+      res.redirect('/');
+    }
+})
+
 // router.get('/write', function(req, res, next) {
 //   var user = Math.floor(Date.now());
 //   var name = 'Mahesh Ranaweera';

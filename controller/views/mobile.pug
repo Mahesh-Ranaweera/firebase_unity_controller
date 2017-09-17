@@ -1,7 +1,6 @@
 extends layout
 
 block content
-  //- script(src='javascripts/socket.io.js')
   script(src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
   crossorigin="anonymous")
   script(src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js")
@@ -28,6 +27,11 @@ block content
     div.axis.za z-axis:  
       #doDirection
 
+
+  .header
+    - var url='/signout?name='+ user;
+    a(href=url)
+      .goutbtn Sign Out
 
   //- #beacons
 
@@ -70,9 +74,10 @@ block content
 
     //send the orientation data
     function write_orient(LR,FB,DIR){
-      //var uid = 'users'+document.getElementByID('curr_user').val();
-      
-      db.ref('mobile_orient/'+query).update({
+      var uid = 'users'+ document.getElementById('curr_user').value;
+      console.log(uid);
+
+      db.ref().child(uid).child('mobile_orient/'+query).update({
           LR: LR,
           FB: FB,
           DIR: DIR
@@ -83,9 +88,9 @@ block content
 
     //send the device acceleration
     function write_accl(ACC, ROT){
-      ///var uid = 'users'+document.getElementByID('curr_user').val();
+      var uid = 'users'+document.getElementById('curr_user').value;
 
-      db.ref('mobile_accl/'+query).update({
+      db.ref().child(uid).child('mobile_accl/'+query).update({
           ACC: ACC,
           ROT: ROT
       });
@@ -116,21 +121,21 @@ block content
         info = xyz.replace("X", acceleration.x && acceleration.x.toFixed(3));
         info = info.replace("Y", acceleration.y && acceleration.y.toFixed(3));
         info = info.replace("Z", acceleration.z && acceleration.z.toFixed(3));
-        document.getElementById("moAccel").innerHTML = info;
+        //document.getElementById("moAccel").innerHTML = info;
 
         // Grab the acceleration including gravity from the results
         acceleration = eventData.accelerationIncludingGravity;
         info = xyz.replace("X", acceleration.x && acceleration.x.toFixed(3));
         info = info.replace("Y", acceleration.y && acceleration.y.toFixed(3));
         accGravity = info.replace("Z", acceleration.z && acceleration.z.toFixed(3));
-        document.getElementById("moAccelGrav").innerHTML = accGravity;
+        //document.getElementById("moAccelGrav").innerHTML = accGravity;
 
         // Grab the rotation rate from the results
         var rotation = eventData.rotationRate;
         info = xyz.replace("X", rotation.alpha && rotation.alpha.toFixed(3));
         info = info.replace("Y", rotation.beta && rotation.beta.toFixed(3));
         deviceRot = info.replace("Z", rotation.gamma && rotation.gamma.toFixed(3));
-        document.getElementById("moRotation").innerHTML = deviceRot;
+        //document.getElementById("moRotation").innerHTML = deviceRot;
 
          write_accl(accGravity, deviceRot);
     }

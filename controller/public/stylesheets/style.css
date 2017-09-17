@@ -137,3 +137,28 @@ b {
   margin-left: auto;
   margin-right: auto;
 }
+
+.header{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 80px;
+}
+
+.goutbtn{
+  width: auto;
+  height: 60px;
+  margin: 10px;
+  line-height: 60px;
+  font-size: 18px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 2.5px;
+  font-family: 'Quicksand', sans-serif;  
+  font-weight: normal;
+  float: right;
+  background-color: #34495e;
+}
