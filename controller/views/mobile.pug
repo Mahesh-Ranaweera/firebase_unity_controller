@@ -33,6 +33,7 @@ block content
 
   b |  Interval
     #moInterval
+ 
 
 
   script.
@@ -60,6 +61,7 @@ block content
       }
     }
 
+    //send the orientation data
     function write_orient(LR,FB,DIR){
       db.ref('mobile_orient/'+query).update({
           LR: LR,
@@ -69,6 +71,7 @@ block content
       return true;
     }
 
+    //send the device acceleration
     function write_accl(ACC, ROT){
       db.ref('mobile_accl/'+query).update({
           ACC: ACC,
@@ -115,6 +118,6 @@ block content
         document.getElementById("moRotation").innerHTML = deviceRot;
 
          write_accl(accGravity, deviceRot);
-        }
+    }
 
         data();
