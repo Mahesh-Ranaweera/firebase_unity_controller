@@ -14,7 +14,7 @@ block content
     .q-text
       | ?
 
-  .combo
+  #combo
     .arrow
     .up 
       | >
@@ -97,7 +97,8 @@ block content
         //store the orientation
         write_orient(Math.round(LR), Math.round(FB), Math.round(DIR));
 
-        $(".combo").css("transform", "rotate3d(" + LR + "," + FB + "," + DIR +",90deg)");
+        var combo = document.getElementById("combo");
+        combo.style.webkitTransform = "rotate("+ LR +"deg) rotate3d(1,0,0, "+ (FB*-1)+"deg)";
 
         document.getElementById("doTiltLR").innerHTML = Math.round(LR);
         document.getElementById("doTiltFB").innerHTML = Math.round(FB);
