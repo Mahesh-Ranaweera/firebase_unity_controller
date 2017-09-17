@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 const firebase = require('firebase');
 var  appdb = require('./config');
-var session = require('express-session');
 
 
 //set the firebase
