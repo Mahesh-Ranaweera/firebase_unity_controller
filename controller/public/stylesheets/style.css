@@ -117,4 +117,7 @@ b {
   .axis-container .za {
     color: #BBD686; }
 
+#doTiltFB, #doTiltLR, #doDirection {
+  display: inline-block; }
+
 /*# sourceMappingURL=style.css.map */
