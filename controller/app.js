@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
 
 var index = require('./routes/index');
 
@@ -31,6 +32,15 @@ io.on('orientation_data', function(socket){
 
 
 app.use('/', index);
+
+//initialized the session
+app.use(session({
+  secret: 'HV3U00lcMahc84050VxX62xoMS67NhS4',
+  resave: true,
+  saveUninitialized: true,
+  path: '/'
+}));
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -2,14 +2,8 @@ var express = require('express');
 var router = express.Router();
 const firebase = require('firebase');
 var  appdb = require('./config');
+var session = require('express-session');
 
-//initialized the session
-app.use(session({
-  secret: 'HV3U00lcMahc84050VxX62xoMS67NhS4',
-  resave: true,
-  saveUninitialized: true,
-  path: '/'
-}));
 
 //set the firebase
 var config = {
@@ -40,7 +34,7 @@ router.get('/api', function(req, res, next) {
 
 
 //create the user onlogin
-router.post('/join', function(req, res, next){
+router.get('/join', function(req, res, next){
   var name = Date.now();
 
   if(query.writedata(db, name)){
