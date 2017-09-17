@@ -24,11 +24,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-// app.use(basicAuth({
-//     users: {
-//         'eri-lewo-hotmail-com-s-pro-nkx': 'dd5be408f26144c58e7b4ccc9ba4369d'
-//     }
-// }));
 
 
 app.use('/', index);

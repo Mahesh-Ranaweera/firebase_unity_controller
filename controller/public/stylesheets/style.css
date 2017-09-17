@@ -113,6 +113,11 @@ b {
   .axis-container .za {
     color: #BBD686; }
 
+#beacons {
+  height: 100px;
+  width: 100px;
+  background: black; }
+
 #doTiltFB, #doTiltLR, #doDirection {
   display: inline-block;
   float: right; }
