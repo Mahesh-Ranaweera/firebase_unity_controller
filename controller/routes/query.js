@@ -1,5 +1,5 @@
 var writedata = function(db, name){
-    db.ref('users').set({
+    db.ref('users'+name).set({
         user: name
     });
     return true;
